@@ -1,9 +1,9 @@
 # Respostas · Avaliação Prática de Docker · ViaSerra Transportes (Turma C)
 
-Nome:
-Matrícula:
-Usuário do GitHub:
-Usuário do Docker Hub:
+Nome: MARIANA MARTINS DE SOUSA MELLO
+Matrícula: 26174740
+Usuário do GitHub: marimello16
+Usuário do Docker Hub: marianamartinsmello
 
 Responda com as suas palavras e com o que aconteceu na SUA máquina. Resposta curta e certa vale mais
 do que texto longo copiado. Resposta que contradiz o seu próprio Dockerfile vale zero.
@@ -12,37 +12,24 @@ do que texto longo copiado. Resposta que contradiz o seu próprio Dockerfile val
 
 1. Qual imagem base você usou e qual o tamanho final da imagem do portal (saída de `docker images`)?
 
+`nginx:1.27-alpine`. O tamanho final da imagem é aproximadamente **43.1 MB**.
+
 2. Em qual pasta do container o Nginx procura os arquivos do site? Mostre o comando que você usou para
    conferir que o `index.html` está lá dentro.
+
+A pasta é `/usr/share/nginx/html/`.
+O comando para conferir o arquivo lá dentro foi:
+`docker exec -it teste-portal ls -l /usr/share/nginx/html/`
 
 ## Parte 2 · Docker Hub
 
 3. Nome completo da imagem publicada e link público do repositório no Docker Hub.
 
+* **Nome completo da imagem:** `marianamartinsmello/viaserra-portal:1.0-26174740`
+* **Link público:** `https://hub.docker.com/r/marianamartinsmello/viaserra-portal`
+
 4. Se você mudar o HTML, quais comandos precisa rodar para que a versão nova chegue ao Docker Hub?
 
-## Parte 3 · Página de manutenção
-
-5. Preencha uma linha por defeito encontrado. Defeito inexistente listado aqui desconta pontos.
-
-| # | Instrução | O que estava errado | O que você viu acontecer | Como corrigiu |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-
-6. Qual a diferença entre `-p 7042:80` e `-p 80:7042` no `docker run`? Qual dos dois números é a porta do container?
-
-## Parte 4 · Primeiro docker-compose
-
-7. Escreva os dois comandos `docker run` que fariam o mesmo que o seu `docker-compose.yml`.
-
-8. Qual comando derruba os dois containers de uma vez?
-
-## Verificador
-
-9. Código de conclusão impresso pelo verificador:
-
-```
-(cole aqui)
-```
+```cmd
+docker build -t marianamartinsmello/viaserra-portal:1.0-26174740 ./portal
+docker push marianamartinsmello/viaserra-portal:1.0-26174740
